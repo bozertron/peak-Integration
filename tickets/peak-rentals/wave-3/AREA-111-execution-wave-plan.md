@@ -6,7 +6,31 @@
 - Source: AREA-107 doctrine applied to the measured state of the tree
 - Dependencies: AREA-107, AREA-109, AREA-110
 - Risk: operations / context integrity
-- Status: **BLOCKED on the canonical 11-rule PROHIBITED block.** Wave 1 is fully specified and ready to deploy the moment it is supplied.
+- Status: **PARTLY SUPERSEDED by AREA-112.** The PROHIBITED block has been supplied; a 10-vs-11 rule-count discrepancy still gates the first governed wave.
+
+## SUPERSEDED IN PART — read AREA-112 first
+
+Two things changed after this ticket was written.
+
+1. **The PROHIBITED blocker (B0) is resolved.** The canonical block was supplied
+   and is stored verbatim at `tickets/peak-rentals/doctrine/PROHIBITED.txt`.
+   One discrepancy remains open: the doctrine calls it an 11-rule block and the
+   supplied text contains **10** numbered rules plus an unnumbered `STAY SHORT`
+   closer. Per STOP-SAFE, no eleventh rule has been invented and the closer has
+   not been promoted. **This still gates the first governed wave.**
+
+2. **The target changed to Tauri, native-first.** See AREA-112. Consequently:
+   - **W1's `lib/data/*.ts` extraction step is WITHDRAWN.** It would relocate
+     the hardcoded demo arrays rather than remove them, which violates rule 3.
+     Local SQLite seeding replaces it (AREA-112 S4).
+   - **The "maximum safe concurrency is 1" conclusion is relaxed.** It remains
+     true for UI work, but AREA-112 adds a fully disjoint local-data-layer
+     track that may run in parallel from day one.
+   - The component-extraction half of W1, the file-ownership matrix, the W2
+     builder roster, the prompt-assembly rules (P1) and the timeout classes all
+     **still stand**, subject to the framework decision in AREA-112 D1.
+
+Everything below is retained for the parts that still hold.
 
 ## B0 — The blocker, stated precisely
 
