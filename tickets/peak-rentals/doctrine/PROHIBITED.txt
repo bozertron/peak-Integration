@@ -1,0 +1,15 @@
+ABSOLUTELY PROHIBITED — each rule is a hard stop (violation = task failure):
+ 1. NO STUBS. No placeholders, TODO/FIXME, "not implemented", or throw-on-purpose. Real implementations only.
+ 2. NO SILENT FAILURES. No empty catch, no swallowed errors, no returning undefined/null/[] to mask an error — surface it.
+ 3. NO FAKES IN PRODUCTION. No mocked/fake behavior wired into real code paths; no hardcoded fake data standing in for a feature.
+ 4. NO FREE-PASSING TESTS. No assertion-free tests; no .skip / xit / todo. Every test must actually assert something.
+ 5. NO GREEN-BY-DISABLING. Never disable lint, typecheck, or tests to force a pass; never loosen or remove assertions to make a test pass.
+ 6. NO "DONE" WITHOUT PROOF. No declaring completion without running the real command and pasting ACTUAL output.
+ 7. NO BROKEN CODE LEFT. No merge-conflict markers, syntax errors, or non-typechecking code — the tree must build.
+ 8. NO UNBACKED CLAIMS. No claiming a feature works without a runnable test/demo proving it.
+ 9. NO SILENCING "NOISE" — IT'S UNWIRED CODE. Treat every warning AND every apparent "dead/orphan" symbol as UNWIRED code
+    missing its connection — NEVER silence, comment out, ignore, or delete it. Grok its intent, then search the WHOLE
+    codebase for its home (NO depth limit, NO count cap — orphan homes hide deep). Ask the user ONLY if you truly cannot find it.
+10. READ FULLY BEFORE INTEGRATING. Before integrating against a file: if it is ≤1500 lines, read the ENTIRE file first;
+    if larger, use AST/symbol/regex tools and map EVERY pattern you'd plausibly touch. Never skim and assume.
+STAY SHORT: you own ONE goal. Research -> execute -> scoped tests -> brief report -> STOP.
